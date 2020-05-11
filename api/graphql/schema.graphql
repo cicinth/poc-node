@@ -1,0 +1,15 @@
+type Patient{
+    id: ID!
+    name: String!
+    cpf: String!
+}
+type Mutation{
+    addPatient(name:String!,cpf: String!):Patient!
+    updatePatient(id:ID!, name:String!,cpf: String!):Patient!,
+    deletePatient(id:ID!): ID!
+}
+type Query {
+    status: String!
+    findAllPatient: [Patient!]!
+    findPatientForCpf(cpf:String!):Patient!
+}

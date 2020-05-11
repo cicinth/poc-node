@@ -1,0 +1,23 @@
+version: '3.1'
+
+services:
+
+  mongo:
+    image: mongo
+    restart: always
+    ports:
+      - 27017:27017
+  mongo-express:
+    image: mongo-express
+    restart: always
+    ports:
+      - 8081:8081
+  api:
+    container_name: api
+    image: node:8-alpine
+    ports: 
+      - "4000:4000"
+    command: sh -c "npm install && npm run local"
+    working_dir: /app
+    volumes:
+      - ./api:/app
