@@ -13,3 +13,7 @@ type Query {
     findAllPatient: [Patient!]!
     findPatientForCpf(cpf:String!):Patient!
 }
+
+type Subscription {
+    newPatient: Patient!
+  }
