@@ -4,23 +4,23 @@ const findOne = require('./functions/getOnePatient');
 const update = require('./functions/updatePatient');
 const remove = require('./functions/removePatient');
 
-function savePatient(item) {
+async function savePatient(item) {
     return save(item)
 }
 
-function getPatient() {
+async function getPatient() {
     return findAll()
 }
 
-function getOnePatient(cpf) {
+async function getOnePatient(cpf) {
     return findOne(cpf)
 }
 
-function updatePatient(params) {
+async function updatePatient(params) {
     return update(params)
 }
 
-function deletePatient(params) {
+async function deletePatient(params) {
     return remove(params)
 }
 

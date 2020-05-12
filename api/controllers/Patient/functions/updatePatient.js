@@ -1,16 +1,17 @@
 const Patient = require('../../../database/models/patient');
 
-async function getOnePatient(params) {
+async function updatePatient(params) {
     const {id,name, cpf} = params
-    const patient = await Patient.findByIdAndUpdate(id,{
+    await Patient.findByIdAndUpdate(id,{
         $set:{
             name:name,
             cpf:cpf
         }
-    }) 
+    })
+    const patient = await Patient.findOne({_id:id}) 
     return patient
     
 }
 
-module.exports = getOnePatient;
+module.exports = updatePatient;
 
